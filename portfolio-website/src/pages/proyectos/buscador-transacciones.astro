@@ -1,0 +1,63 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+---
+
+<Layout title="Buscador de Transacciones ATM | Axel Pariona">
+  <Header />
+
+  <main class="project-page">
+    <div class="container">
+      <a href="/#proyectos" class="back-link">← Volver a proyectos</a>
+
+      <p class="eyebrow">Desktop App</p>
+
+      <h1>Buscador de Transacciones ATM</h1>
+
+      <p class="description">
+        Aplicación de escritorio desarrollada en Python para procesar archivos de
+        transacciones ATM, buscar registros, aplicar filtros y exportar resultados
+        a Excel.
+      </p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .project-page {
+    padding: 5rem 0;
+  }
+
+  .back-link {
+    display: inline-flex;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+  }
+
+  .back-link:hover {
+    color: var(--primary);
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: -0.06em;
+    line-height: 1;
+  }
+
+  .description {
+    max-width: 780px;
+    margin: 1.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+</style>

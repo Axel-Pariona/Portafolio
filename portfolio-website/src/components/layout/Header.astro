@@ -1,0 +1,73 @@
+<header class="site-header">
+  <div class="container header-content">
+	<a href="/" class="logo">
+		Axel Pariona <span>/ Giggio</span>
+	</a>
+
+    <nav class="nav">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#tecnologias">Tecnologías</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid var(--border);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  .header-content {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.03em;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav a:hover {
+    color: var(--primary);
+  }
+
+  .logo span {
+  	color: var(--primary);
+  	font-weight: 600;
+  }
+  @media (max-width: 720px) {
+    .header-content {
+      height: auto;
+      padding: 1rem 0;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-direction: column;
+    }
+
+    .nav {
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+  }
+</style>

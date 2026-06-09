@@ -1,0 +1,308 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import CaseStudySection from "../../components/CaseStudySection.astro";
+import TechPill from "../../components/TechPill.astro";
+
+const stack = [
+  "React",
+  "Vite",
+  "Supabase Auth",
+  "Supabase PostgreSQL",
+  "Supabase Edge Functions",
+  "Mercado Pago Sandbox",
+  "Webhooks",
+  "Vercel",
+];
+---
+
+<Layout
+  title="PagaloSeguro | Caso de estudio"
+  description="Caso de estudio de PagaloSeguro, laboratorio de integración de pagos con Mercado Pago, Supabase Edge Functions y webhooks."
+>
+  <Header />
+
+  <main class="case-page">
+    <section class="case-hero">
+      <div class="container">
+        <a href="/#proyectos" class="back-link">← Volver a proyectos</a>
+
+        <p class="eyebrow">WebApp · Integración de pagos</p>
+
+        <h1>PagaloSeguro</h1>
+
+        <p class="lead">
+          Laboratorio de integración de pagos desarrollado para practicar el flujo
+          completo de una pasarela usando Mercado Pago Sandbox, Supabase Edge
+          Functions, órdenes, eventos de pago y webhooks.
+        </p>
+
+        <div class="project-actions">
+          <a href="https://pagalo-seguro.vercel.app" class="btn primary" target="_blank" rel="noreferrer">Ver demo</a>
+          <a href="https://github.com/Axel-Pariona/PagaloSeguro" class="btn secondary" target="_blank" rel="noreferrer">Ver GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div class="container summary-grid">
+        <article>
+          <span>Tipo</span>
+          <strong>Aplicación web</strong>
+        </article>
+
+        <article>
+          <span>Estado</span>
+          <strong>Sandbox / En pruebas</strong>
+        </article>
+
+        <article>
+          <span>Rol</span>
+          <strong>Frontend, Edge Functions e integración de pagos</strong>
+        </article>
+
+        <article>
+          <span>Objetivo</span>
+          <strong>Practicar un flujo seguro de pagos online</strong>
+        </article>
+      </div>
+    </section>
+
+    <div class="container case-content">
+      <CaseStudySection title="Problema">
+        <p>
+          Integrar una pasarela de pagos no consiste únicamente en redirigir al
+          usuario a un checkout. También implica crear órdenes, proteger
+          credenciales, recibir eventos externos, validar información y actualizar
+          estados de pago sin depender solo del frontend.
+        </p>
+
+        <p>
+          El objetivo del proyecto fue practicar este flujo de forma segura usando
+          un entorno sandbox, sin construir un ecommerce completo.
+        </p>
+      </CaseStudySection>
+
+      <CaseStudySection title="Solución">
+        <p>
+          PagaloSeguro fue desarrollado como un laboratorio de integración de
+          pagos. El frontend permite seleccionar productos demo y generar una
+          orden, mientras que la creación del checkout se realiza desde Supabase
+          Edge Functions para evitar exponer credenciales sensibles.
+        </p>
+
+        <p>
+          Además, se implementó una función para recibir webhooks, guardar eventos
+          del proveedor, consultar el estado real del pago y actualizar la orden
+          correspondiente.
+        </p>
+      </CaseStudySection>
+
+      <CaseStudySection title="Funcionalidades principales">
+        <ul>
+          <li>Autenticación de usuarios con Supabase Auth.</li>
+          <li>Listado de productos demo.</li>
+          <li>Creación de órdenes de pago en estado pendiente.</li>
+          <li>Generación de checkout con Mercado Pago Sandbox.</li>
+          <li>Redirección del usuario a Checkout Pro.</li>
+          <li>Recepción y almacenamiento de eventos de webhook.</li>
+          <li>Actualización de estados de orden según el resultado del pago.</li>
+          <li>Panel administrativo para monitorear órdenes y eventos.</li>
+        </ul>
+      </CaseStudySection>
+
+      <CaseStudySection title="Stack técnico">
+        <div class="tech-list">
+          {stack.map((tech) => <TechPill name={tech} />)}
+        </div>
+      </CaseStudySection>
+
+      <CaseStudySection title="Retos técnicos">
+        <ul>
+          <li>
+            Separar correctamente la lógica sensible del frontend usando Edge
+            Functions como capa backend.
+          </li>
+          <li>
+            Manejar variables de entorno y credenciales privadas sin subir datos
+            sensibles al repositorio.
+          </li>
+          <li>
+            Procesar webhooks externos y evitar depender únicamente del retorno
+            visual del checkout.
+          </li>
+          <li>
+            Mapear estados del proveedor de pagos hacia estados internos de la
+            aplicación.
+          </li>
+          <li>
+            Registrar eventos de pago para auditoría y depuración.
+          </li>
+        </ul>
+      </CaseStudySection>
+
+      <CaseStudySection title="Aprendizajes">
+        <p>
+          Este proyecto me permitió comprender mejor cómo se estructura una
+          integración de pagos real: frontend, backend serverless, órdenes,
+          credenciales, webhooks, eventos y estados.
+        </p>
+
+        <p>
+          También reforcé la importancia de no confiar en el frontend para procesos
+          sensibles y de mantener una trazabilidad clara sobre cada evento recibido.
+        </p>
+      </CaseStudySection>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .case-page {
+    min-height: 100vh;
+  }
+
+  .case-hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+  }
+
+  .back-link:hover {
+    color: var(--primary);
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.07em;
+  }
+
+  .lead {
+    max-width: 850px;
+    margin: 1.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+
+  .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 1.2rem;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .primary {
+    background: var(--primary);
+    color: #020617;
+  }
+
+  .secondary {
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .secondary:hover {
+    border-color: var(--primary);
+  }
+
+  .summary {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .summary article {
+    padding: 1.5rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .summary article:last-child {
+    border-right: 0;
+  }
+
+  .summary span {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .summary strong {
+    display: block;
+    line-height: 1.5;
+  }
+
+  .case-content {
+    padding-bottom: 5rem;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  @media (max-width: 900px) {
+    .summary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary article {
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .case-hero {
+      padding: 4rem 0 3rem;
+    }
+
+    .summary-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .summary article {
+      border-right: 0;
+    }
+  }
+</style>

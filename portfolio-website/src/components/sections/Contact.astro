@@ -1,0 +1,95 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import ContactCard from "../ui/ContactCard.astro";
+
+const contacts = [
+  {
+    title: "Correo",
+    description: "Para contacto directo, consultas o posibles oportunidades.",
+    href: "mailto:yamirpariona@gmail.com",
+    label: "Enviar correo",
+  },
+  {
+    title: "GitHub",
+    description: "Repositorios, proyectos personales y avances técnicos.",
+    href: "https://github.com/Axel-Pariona",
+    label: "Ver perfil",
+  },
+  {
+    title: "LinkedIn",
+    description: "Perfil profesional, formación y futuras oportunidades laborales.",
+    href: "https://www.linkedin.com/in/axel-pariona/",
+    label: "Ver perfil",
+  },
+  {
+    title: "CV",
+    description: "Currículum en PDF con información académica, técnica y proyectos.",
+    href: "#",
+    label: "Próximamente",
+  },
+];
+---
+
+<section id="contacto" class="contact-section">
+  <div class="container contact-grid">
+    <div>
+      <SectionTitle
+        eyebrow="Contacto"
+        title="¿Quieres conocer más sobre mis proyectos o mi perfil?"
+        description="Estoy construyendo mi camino como desarrollador web, documentando mis avances y mejorando mis proyectos de forma constante."
+      />
+
+      <p class="note">
+        También puedes encontrarme como <strong>Giggio</strong> en proyectos personales
+        y espacios más cercanos a la comunidad dev.
+      </p>
+    </div>
+
+    <div class="contact-list">
+      {contacts.map((contact) => (
+        <ContactCard {...contact} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .note {
+    max-width: 620px;
+    margin: -1.5rem 0 0;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .note strong {
+    color: var(--primary);
+  }
+
+  .contact-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .note {
+      margin-top: -1rem;
+    }
+  }
+</style>
