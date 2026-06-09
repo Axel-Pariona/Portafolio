@@ -1,0 +1,334 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import CaseStudySection from "../../components/case-study/CaseStudySection.astro";
+import TechPill from "../../components/ui/TechPill.astro";
+
+const stack = [
+  "Python",
+  "ANTLR4",
+  "Java Runtime",
+  "ANTLR4 Python Runtime",
+  "Gramáticas .g4",
+  "Visitor Pattern",
+  "CLI",
+];
+---
+
+<Layout
+  title="StatsLang | Caso de estudio"
+  description="Caso de estudio de StatsLang, lenguaje de dominio específico para consultas estadísticas simples desarrollado con ANTLR4 y Python."
+>
+  <Header />
+
+  <main class="case-page">
+    <section class="case-hero">
+      <div class="container">
+        <a href="/#proyectos" class="back-link">← Volver a proyectos</a>
+
+        <p class="eyebrow">Compiladores · Lenguaje de dominio específico</p>
+
+        <h1>StatsLang</h1>
+
+        <p class="lead">
+          Lenguaje de dominio específico orientado a consultas estadísticas
+          simples, desarrollado con ANTLR4 y Python para aplicar conceptos de
+          análisis léxico, análisis sintáctico, recorrido del árbol de parseo y
+          generación básica de representación intermedia.
+        </p>
+
+        <div class="project-actions">
+          <a
+            href="https://github.com/Axel-Pariona/StatsLang"
+            class="btn primary"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ver GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div class="container summary-grid">
+        <article>
+          <span>Tipo</span>
+          <strong>Lenguaje / Compiladores</strong>
+        </article>
+
+        <article>
+          <span>Estado</span>
+          <strong>Académico</strong>
+        </article>
+
+        <article>
+          <span>Rol</span>
+          <strong>Diseño de gramática, parser y generación intermedia</strong>
+        </article>
+
+        <article>
+          <span>Objetivo</span>
+          <strong>Aplicar fundamentos de teoría de compiladores</strong>
+        </article>
+      </div>
+    </section>
+
+    <div class="container case-content">
+      <CaseStudySection title="Problema">
+        <p>
+          En el curso de Teoría de Compiladores era necesario aplicar de forma
+          práctica los conceptos de análisis léxico, análisis sintáctico,
+          construcción de árbol de parseo y generación de una salida intermedia.
+        </p>
+
+        <p>
+          Para ello, se planteó el diseño de un lenguaje pequeño y específico que
+          permitiera representar consultas estadísticas simples de forma clara y
+          estructurada.
+        </p>
+      </CaseStudySection>
+
+      <CaseStudySection title="Solución">
+        <p>
+          StatsLang fue desarrollado como un lenguaje de dominio específico para
+          expresar operaciones estadísticas básicas. El lenguaje permite cargar
+          archivos, realizar consultas con funciones de agregación, aplicar
+          condiciones y declarar histogramas simples.
+        </p>
+
+        <p>
+          La gramática fue definida en ANTLR4 mediante un archivo `.g4`. A partir
+          de ella se generaron los componentes necesarios para realizar el
+          análisis léxico y sintáctico desde Python, recorriendo posteriormente el
+          árbol mediante un visitor.
+        </p>
+      </CaseStudySection>
+
+      <CaseStudySection title="Características principales">
+        <ul>
+          <li>Definición formal de una gramática con ANTLR4.</li>
+          <li>Reconocimiento de sentencias para carga de archivos.</li>
+          <li>Consultas estadísticas con funciones como avg, sum, count, min y max.</li>
+          <li>Uso de alias mediante la palabra reservada as.</li>
+          <li>Condiciones con operadores de comparación y operadores lógicos.</li>
+          <li>Declaración de histogramas simples con número de bins.</li>
+          <li>Manejo de ejemplos válidos e inválidos.</li>
+          <li>Generación básica de representación intermedia.</li>
+        </ul>
+      </CaseStudySection>
+
+      <CaseStudySection title="Sintaxis del lenguaje">
+        <p>
+          Algunos ejemplos de instrucciones válidas en StatsLang son:
+        </p>
+
+        <pre><code>load "ventas.csv";
+
+select avg(precio) where categoria = "ropa";
+
+select avg(nota) as promedio, max(nota), min(nota);
+
+histogram edad bins=5;</code></pre>
+      </CaseStudySection>
+
+      <CaseStudySection title="Stack técnico">
+        <div class="tech-list">
+          {stack.map((tech) => <TechPill name={tech} />)}
+        </div>
+      </CaseStudySection>
+
+      <CaseStudySection title="Retos técnicos">
+        <ul>
+          <li>
+            Diseñar una gramática suficientemente clara para reconocer sentencias
+            estadísticas sin aumentar demasiado la complejidad del lenguaje.
+          </li>
+          <li>
+            Separar la parte frontend del compilador, encargada del análisis
+            léxico y sintáctico, de la parte backend, encargada del recorrido y
+            la generación intermedia.
+          </li>
+          <li>
+            Manejar errores sintácticos para diferenciar ejemplos válidos e
+            inválidos.
+          </li>
+          <li>
+            Organizar los archivos generados por ANTLR4 sin mezclarlos con el
+            código fuente principal.
+          </li>
+        </ul>
+      </CaseStudySection>
+
+      <CaseStudySection title="Aprendizajes">
+        <p>
+          Este proyecto me permitió reforzar fundamentos de compiladores mediante
+          una implementación práctica: desde la definición de tokens y reglas de
+          parser hasta el recorrido del árbol de parseo.
+        </p>
+
+        <p>
+          También me ayudó a entender mejor cómo se puede diseñar un lenguaje de
+          dominio específico, cómo estructurar un proyecto con frontend y backend
+          de compilador, y cómo documentar una gramática para que sea entendible.
+        </p>
+      </CaseStudySection>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .case-page {
+    min-height: 100vh;
+  }
+
+  .case-hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+  }
+
+  .back-link:hover {
+    color: var(--primary);
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.07em;
+  }
+
+  .lead {
+    max-width: 850px;
+    margin: 1.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+
+  .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 1.2rem;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .primary {
+    background: var(--primary);
+    color: #020617;
+  }
+
+  .summary {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .summary article {
+    padding: 1.5rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .summary article:last-child {
+    border-right: 0;
+  }
+
+  .summary span {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .summary strong {
+    display: block;
+    line-height: 1.5;
+  }
+
+  .case-content {
+    padding-bottom: 5rem;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  pre {
+    overflow-x: auto;
+    margin: 1rem 0 0;
+    padding: 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: rgba(2, 6, 23, 0.7);
+  }
+
+  code {
+    color: var(--text-main);
+    font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .summary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary article {
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .case-hero {
+      padding: 4rem 0 3rem;
+    }
+
+    .summary-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .summary article {
+      border-right: 0;
+    }
+  }
+</style>
