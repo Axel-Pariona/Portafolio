@@ -34,13 +34,17 @@ const { project } = Astro.props;
     </a>
 
     <div class="external-links">
-      <a href={project.demoUrl} class="btn primary" target="_blank" rel="noreferrer">
-        Ver demo
-      </a>
+      {project.demoUrl && (
+        <a href={project.demoUrl} target="_blank" rel="noreferrer">
+          Demo
+        </a>
+      )}
 
-      <a href={project.repoUrl} class="btn secondary" target="_blank" rel="noreferrer">
-        Ver GitHub
-      </a>
+      {project.repoUrl && (
+        <a href={project.repoUrl} target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      )}
     </div>
   </div>
 </article>
