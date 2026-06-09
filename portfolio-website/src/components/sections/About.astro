@@ -1,0 +1,81 @@
+<section id="sobre-mi" class="about">
+  <div class="container about-grid">
+    <div>
+      <p class="section-kicker">Sobre mí</p>
+
+      <h2>
+        Soy Axel Pariona, aunque en mis proyectos personales también uso el alias Giggio.
+      </h2>
+    </div>
+
+    <div class="about-content">
+      <p>
+        Soy estudiante de Ciencias de la Computación y estoy orientando mi perfil al
+        desarrollo web. Me interesa construir aplicaciones que no se queden solo en la
+        interfaz, sino que también integren autenticación, bases de datos, seguridad,
+        roles, servicios externos y despliegue en producción.
+      </p>
+
+      <p>
+        En mis últimos proyectos he trabajado con React, Vite, Astro, Supabase,
+        PostgreSQL, Row Level Security, Edge Functions, Mercado Pago Sandbox, GitHub
+        y Vercel. Cada proyecto me ha ayudado a entender mejor cómo pasar de una idea
+        básica a una aplicación funcional.
+      </p>
+
+      <p>
+        Actualmente estoy mejorando mi portfolio para documentar mis avances, mostrar
+        mis proyectos y construir una identidad profesional como desarrollador.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .section-kicker {
+    margin: 0 0 1rem;
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.85rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+  }
+
+  .about-content {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .about-content p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 820px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

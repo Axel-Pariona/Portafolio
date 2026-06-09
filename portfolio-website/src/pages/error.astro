@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+---
+
+<Layout
+  title="Error | Axel Pariona"
+  description="Ocurrió un problema al cargar esta página."
+>
+  <Header />
+
+  <main class="error-page">
+    <div class="container error-content">
+      <p class="eyebrow">Error</p>
+
+      <h1>Algo salió mal</h1>
+
+      <p class="description">
+        Ocurrió un problema al cargar esta sección. Puedes volver al inicio
+        o revisar mis proyectos principales.
+      </p>
+
+      <div class="actions">
+        <a href="/" class="btn primary">Volver al inicio</a>
+        <a href="/#contacto" class="btn secondary">Ir a contacto</a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .error-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+  }
+
+  .error-content {
+    max-width: 820px;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.07em;
+  }
+  
+  .description {
+    max-width: 680px;
+    margin: 1.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 1.2rem;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+
+  .primary {
+    background: var(--primary);
+    color: #020617;
+  }
+
+  .secondary {
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.03);
+  }
+</style>

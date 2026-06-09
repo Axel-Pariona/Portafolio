@@ -1,0 +1,304 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import CaseStudySection from "../../components/CaseStudySection.astro";
+import TechPill from "../../components/TechPill.astro";
+
+const stack = [
+  "React",
+  "Vite",
+  "Supabase Auth",
+  "Supabase PostgreSQL",
+  "Row Level Security",
+  "Vercel",
+  "GitHub",
+];
+---
+
+<Layout
+  title="CasaCuenta | Caso de estudio"
+  description="Caso de estudio de CasaCuenta, aplicación web para la gestión de gastos personales y familiares."
+>
+  <Header />
+
+  <main class="case-page">
+    <section class="case-hero">
+      <div class="container">
+        <a href="/#proyectos" class="back-link">← Volver a proyectos</a>
+
+        <p class="eyebrow">WebApp · Finanzas personales</p>
+
+        <h1>CasaCuenta</h1>
+
+        <p class="lead">
+          Aplicación web para registrar, organizar y consultar gastos personales
+          y familiares mediante autenticación, categorías, filtros, resúmenes y
+          control de acceso con Supabase.
+        </p>
+
+        <div class="project-actions">
+          <a href="https://casa-cuenta.vercel.app" class="btn primary" target="_blank" rel="noreferrer">Ver demo</a>
+          <a href="https://github.com/Axel-Pariona/CasaCuenta" class="btn secondary" target="_blank" rel="noreferrer">Ver GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div class="container summary-grid">
+        <article>
+          <span>Tipo</span>
+          <strong>Aplicación web</strong>
+        </article>
+
+        <article>
+          <span>Estado</span>
+          <strong>Terminado</strong>
+        </article>
+
+        <article>
+          <span>Rol</span>
+          <strong>Desarrollo frontend y backend con Supabase</strong>
+        </article>
+
+        <article>
+          <span>Objetivo</span>
+          <strong>Gestionar gastos familiares de forma sencilla</strong>
+        </article>
+      </div>
+    </section>
+
+    <div class="container case-content">
+      <CaseStudySection title="Problema">
+        <p>
+          En muchos hogares, el registro de gastos se realiza de forma manual o
+          dispersa, lo que dificulta conocer cuánto se gasta, en qué categorías
+          se concentra el consumo y cómo se distribuyen los gastos dentro de una
+          familia.
+        </p>
+
+        <p>
+          La necesidad principal era construir una herramienta sencilla, accesible
+          y sin costo de infraestructura, que permitiera registrar gastos y
+          consultarlos de manera ordenada.
+        </p>
+      </CaseStudySection>
+
+      <CaseStudySection title="Solución">
+        <p>
+          CasaCuenta fue desarrollada como una aplicación web que permite a un
+          usuario autenticarse, registrar gastos, clasificarlos por categoría,
+          filtrarlos y visualizar resúmenes básicos. La solución usa Supabase
+          como backend para manejar autenticación, base de datos y reglas de
+          seguridad mediante Row Level Security.
+        </p>
+
+        <p>
+          El proyecto fue desplegado en Vercel, manteniendo una arquitectura
+          simple y adecuada para un proyecto personal en producción.
+        </p>
+      </CaseStudySection>
+
+      <CaseStudySection title="Funcionalidades principales">
+        <ul>
+          <li>Registro e inicio de sesión con Supabase Auth.</li>
+          <li>Creación, edición y eliminación de gastos.</li>
+          <li>Clasificación de gastos por categoría y método de pago.</li>
+          <li>Filtros por fecha, categoría, método de pago y descripción.</li>
+          <li>Resumen de gastos del mes, gastos del día y categoría principal.</li>
+          <li>Separación entre información personal y familiar.</li>
+          <li>Protección de datos mediante políticas RLS.</li>
+        </ul>
+      </CaseStudySection>
+
+      <CaseStudySection title="Stack técnico">
+        <div class="tech-list">
+          {stack.map((tech) => <TechPill name={tech} />)}
+        </div>
+      </CaseStudySection>
+
+      <CaseStudySection title="Retos técnicos">
+        <ul>
+          <li>
+            Diseñar una estructura de base de datos que permitiera manejar gastos
+            personales y familiares sin mezclar información entre usuarios.
+          </li>
+          <li>
+            Configurar políticas de Row Level Security para evitar que un usuario
+            acceda a información que no le corresponde.
+          </li>
+          <li>
+            Mantener el frontend separado de los datos sensibles, usando las
+            claves públicas de Supabase de forma correcta.
+          </li>
+          <li>
+            Organizar los componentes del dashboard para que el sistema sea fácil
+            de mantener y ampliar.
+          </li>
+        </ul>
+      </CaseStudySection>
+
+      <CaseStudySection title="Aprendizajes">
+        <p>
+          Este proyecto me permitió entender mejor cómo pasar de una aplicación
+          frontend a una webapp conectada a una base de datos real, con usuarios,
+          reglas de acceso, operaciones CRUD y despliegue en producción.
+        </p>
+
+        <p>
+          También reforcé la importancia de proteger la información desde la base
+          de datos, no solo desde la interfaz.
+        </p>
+      </CaseStudySection>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .case-page {
+    min-height: 100vh;
+  }
+
+  .case-hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+  }
+
+  .back-link:hover {
+    color: var(--primary);
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.07em;
+  }
+
+  .lead {
+    max-width: 850px;
+    margin: 1.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+
+  .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 1.2rem;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .primary {
+    background: var(--primary);
+    color: #020617;
+  }
+
+  .secondary {
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .secondary:hover {
+    border-color: var(--primary);
+  }
+
+  .summary {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .summary article {
+    padding: 1.5rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .summary article:last-child {
+    border-right: 0;
+  }
+
+  .summary span {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .summary strong {
+    display: block;
+    line-height: 1.5;
+  }
+
+  .case-content {
+    padding-bottom: 5rem;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  @media (max-width: 900px) {
+    .summary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary article {
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .case-hero {
+      padding: 4rem 0 3rem;
+    }
+
+    .summary-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .summary article {
+      border-right: 0;
+    }
+  }
+</style>
