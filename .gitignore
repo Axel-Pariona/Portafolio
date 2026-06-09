@@ -2,7 +2,7 @@
 dist/
 
 # generated types and Astro cache
-.astro/
+**/.astro/
 
 # dependencies
 node_modules/
@@ -22,8 +22,8 @@ pnpm-debug.log*
 bun-debug.log*
 
 # editor settings
-.vscode/
-.idea/
+**/.vscode/
+**/.idea/
 
 # operating system files
 .DS_Store
