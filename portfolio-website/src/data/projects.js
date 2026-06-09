@@ -53,4 +53,23 @@ export const projects = [
     demoUrl: "#",
     repoUrl: "#",
   },
+  {
+    title: "StatsLang",
+    slug: "statslang",
+    status: "Académico",
+    type: "Lenguaje / Compiladores",
+    description:
+      "Lenguaje de dominio específico orientado a consultas estadísticas simples, desarrollado con ANTLR4 y Python para aplicar conceptos de análisis léxico, sintáctico y generación intermedia.",
+    stack: ["Python", "ANTLR4", "Java Runtime", "Gramáticas .g4", "Visitor Pattern"],
+    highlights: [
+      "Definición formal de gramática",
+      "Análisis léxico y sintáctico",
+      "Construcción del árbol de parseo",
+      "Recorrido mediante visitor",
+      "Manejo de errores sintácticos",
+      "Generación básica de representación intermedia",
+    ],
+    demoUrl: "",
+    repoUrl: "https://github.com/Axel-Pariona/StatsLang",
+  },
 ];

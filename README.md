@@ -58,6 +58,18 @@ Tecnologías principales:
 - Webhooks
 - Vercel
 
+### StatsLang
+
+Proyecto académico desarrollado para el curso de Teoría de Compiladores. Consiste en un lenguaje de dominio específico orientado a consultas estadísticas simples, implementado con ANTLR4 y Python.
+
+Tecnologías principales:
+
+- Python
+- ANTLR4
+- Java Runtime
+- Gramáticas `.g4`
+- Visitor Pattern
+
 ## Estructura del proyecto
 
 ```txt
@@ -92,6 +104,7 @@ src/
     proyectos/
       casa-cuenta.astro
       pagalo-seguro.astro
+      statslang.astro
       buscador-transacciones.astro
 ```
 
@@ -100,7 +113,7 @@ src/
 Clonar el repositorio:
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/Axel-Pariona/Portafolio.git
 ```
 
 Entrar al proyecto:
@@ -140,6 +153,7 @@ npm run preview
  /proyectos/casa-cuenta
  /proyectos/pagalo-seguro
  /proyectos/buscador-transacciones
+ /proyectos/statslang
  /404
  /error
 ```
